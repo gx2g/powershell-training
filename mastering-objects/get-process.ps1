@@ -7,3 +7,4 @@ Write-Output "get service";
 Get-Service a*;
 
 
+get-process a* Get-Member;
