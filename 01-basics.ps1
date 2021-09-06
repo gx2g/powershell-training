@@ -7,3 +7,8 @@
 
 # Used to force updates and silently continue on errors
 # Update-Help -Verbose -Force -ErrorAction SilentlyContinue
+
+
+# dir | sort-object -Descending -Property lastwritetime
+
+# dir | foreach { "$($_.GetType().fullname) - $_.name"}
