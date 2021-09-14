@@ -17,5 +17,18 @@ Get-Help;
 Get-Member;     
 # Since Powershell is object aware, this cmdlet helps explore the Methods and Properties.
 
+#Cmdlets - the core functionality 
+#Get-Date, Verb-Noun
+Get-Date;
 
+# What if we wanted to see all the verbs?
+Get-Verb;
+
+# Get-Command, The Dictonary Lookup
+Get-Command;
+Get-Command -Name "New";
+
+# Get-Help, describing a specific cmdlet
+Get-Help Get-Command;
+Get-Help Get-Command -Full;
 
