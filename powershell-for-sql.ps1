@@ -26,7 +26,7 @@ Get-Verb;
 
 # Get-Command, The Dictonary Lookup
 Get-Command;
-Get-Command -Name "New";
+Get-Command -Name *New*;
 
 # Get-Help, describing a specific cmdlet
 Get-Help Get-Command;

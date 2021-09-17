@@ -1,3 +1,4 @@
 # Powershell Training
 
-$psversiontable;
+$psversiontable; 
+
