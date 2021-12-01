@@ -3,10 +3,15 @@
 $PbkPath = Join-Path $env:PROGRAMDATA 'Microsoft\Network\Connections\Pbk\rasphone.Pbk'
 
 # Update these variables with the actual VPN name, address, and PSK.
-$ConnectionName = 'AIDesign VPN'
-$ServerAddress = 'aidesign-pqmcbdztkc.dynamic-m.com'
-$PresharedKey = 'AID#^$1221'
-$Destination = '192.168.0.0/24'
+
+# VPN Name
+$ConnectionName = ''
+# meraki host name example.dynamic-m.com
+$ServerAddress = ''
+# pre-share key
+$PresharedKey = ''
+# example: 192.168.0.0/24
+$Destination = ''
 
 # If no VPNs, rasphone.Pbk may not already exist
 # If file does not exist, then create an empty placeholder.
@@ -87,13 +92,18 @@ $value = "2"
 New-ItemProperty -Path $registryPath -Name $name -Value $value -PropertyType DWORD -Force | Out-Null
 {
 # By Tom Chantler - https://tomssl.com/2019/04/30/a-better-way-to-add-and-remove-windows-hosts-file-entries/
-param([string]$DesiredIP = "192.168.0.4"
-    ,[string]$Hostname = "AI-Server1"
+
+# machine ip example 192.168.0.333
+# hostname of the machine
+param([string]$DesiredIP = ""
+    ,[string]$Hostname = " "
 	,[bool]$CheckHostnameOnly = $false
-    , [string]$DesiredIP2 = "192.168.0.173"
-    ,[string]$Hostname2 = "QB-Server")
-# Adds entry to the hosts file.
-#Requires -RunAsAdministrator
+    , [string]$DesiredIP2 = ""
+    ,[string]$Hostname2 = "")
+
+    # Adds entry to the hosts file.
+    # Requires -RunAsAdministrator
+
 $hostsFilePath = "$($Env:WinDir)\system32\Drivers\etc\hosts"
 $hostsFile = Get-Content $hostsFilePath
 
