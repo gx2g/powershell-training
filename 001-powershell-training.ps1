@@ -34,4 +34,9 @@ like HTTP. Also, PSRemoting leverages Active Directory for authentication. By de
 uses Kerberos to authenticate users and determine what level of access they should have on the 
 remote computer. WMI has similar controls you can put in place, but they are much harder to 
 configure and are not secure by default.
+
+
+https://www.ipswitch.com/blog/get-ciminstance-vs-get-wmiobject-whats-the-difference
+https://www.pdq.com/blog/powershell-guide-get-ciminstance-and-get-wmiobject/
+
 #>
