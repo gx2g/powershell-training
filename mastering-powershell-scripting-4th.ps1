@@ -25,3 +25,10 @@ gci -Path C:\Users\rresendez\Desktop\ -Recurse -Force -File
 
 # Alias GCI with path parameter and Recurse using Include parameter to find curtain types of files. 
 gci -Path C:\Users\rresendez\Desktop\ -Recurse -Include *.zip, *.txt
+
+# returns all folders excluding folders specified 
+gci -Path C:\Users\rresendez\Desktop\* -Directory -Name -Exclude <folder_name>, <folder_name>
+
+# Shows all the contents of the registry key HKLM:\Software hive
+gci -Path HKLM:\Software
+
