@@ -11,6 +11,5 @@ Set-MailboxFolderPermission -Identity mailbox@domain.com:\calendar -User user@do
 
 Remove-MailboxFolderPermission -Identity user1@domain.com:\calendar -User user2@domain.com
 
-
 # EXOMail check if permission is applied
 Get-EXOMailboxFolderPermission outofoffice:\calendar
