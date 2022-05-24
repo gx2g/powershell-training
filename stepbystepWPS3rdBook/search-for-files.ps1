@@ -16,7 +16,7 @@ Get-Childitem -Path c:\ -Recurse -ErrorAction SilentlyContinue
 Get-Childitem -Path c:\ -Recurse -Force -ErrorAction SilentlyContinue
 
 # -include command without file shows all types of folders and files
-Get-Childitem –Path C:\ -Include *test* -Recurse -ErrorAction SilentlyContinue
+Get-Childitem -Path C:\ -Include *test* -Recurse -ErrorAction SilentlyContinue
 
 # -include command with file shows only file types with match
 Get-Childitem -Path c:\ -include *test.txt* -File -Recurse -ErrorAction SilentlyContinue
@@ -37,3 +37,4 @@ $FindDate = Get-Date -Year 2021 -Month 01 -Day 01
 # Combine the two together like this using Where Object LastWriteTime greater then $FindDate
 Get-ChildItem -Path c:\users\<username>\desktop\ -include *.doc,*.docx -File -Recurse -ErrorAction SilentlyContinue | Where-Object {$_.LastWriteTime -ge $FindDate}
 
+Get-ChildItem -Path c:\users\<username>\desktop\ -include *.doc,*.docx -File -Recurse -ErrorAction SilentlyContinue | Where-Object {$_.LastWriteTime -ge $FindDate -AND $_.LastWriteTime -le $Finddate.adddays(1)}
