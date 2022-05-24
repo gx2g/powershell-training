@@ -34,6 +34,6 @@ Get-ChildItem -Path C:\users\<username>\desktop\ -Include *.doc,*.docx -File -Re
 # Lets set a time so variable so we can use two commands together / pipe which will include all files since that day
 $FindDate = Get-Date -Year 2021 -Month 01 -Day 01
 
-# Combine the two together like this
+# Combine the two together like this using Where Object LastWriteTime greater then $FindDate
 Get-ChildItem -Path c:\users\<username>\desktop\ -include *.doc,*.docx -File -Recurse -ErrorAction SilentlyContinue | Where-Object {$_.LastWriteTime -ge $FindDate}
 
