@@ -19,7 +19,7 @@ fsutil file createnew c:\users\<username>\desktop\test\myfile.txt 1000
 fsutil fsinfo drives
 
 # obtain drive type
-fsutil fsinfo drive type d:
+fsutil fsinfo drivetype d:
 
 
 # Obtaining some general volume information
