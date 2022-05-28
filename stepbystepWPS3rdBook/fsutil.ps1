@@ -9,9 +9,7 @@ fsutil file findbysid <username> c:\users
 
 #creating a dummy file that is 1k kilobytes, you can increase the file size  
 
-fsutil file createnew c:\users\<username>\desktop\test\myfile.txt 1000
-
-
+fsutil file createnew c:\users\exampleUser\desktop\test\myfile.txt 1000
 
 # Displaying some drive properties
 
@@ -27,3 +25,9 @@ fsutil fsinfo volumeinfo c:
 
 # Determining amount of free space on a drive
 fsutil volume diskfree c:
+
+# Get File system information for a NTFS drive, must be local or error
+fsutil fsinfo ntfsinfo c:
+
+# Get File System statistics
+fsutil fsinfo ntfsinfo c:
