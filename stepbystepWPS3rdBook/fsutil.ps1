@@ -5,7 +5,7 @@
 #Examples - Note < > is placeholder must be changed 
 #To find files that are owned by scottb on drive C, type:
 
-fsutil file findbysid <username> c:\users
+fsutil file findbysid exampleUser c:\users
 
 #creating a dummy file that is 1k kilobytes, you can increase the file size  
 
