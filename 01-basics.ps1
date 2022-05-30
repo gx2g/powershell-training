@@ -1,14 +1,22 @@
 # get-help command to look for help
+Get-Help
 
 # update help command gets the latest packages supported
+Update-Help
 
 # You can view a list of modules that support updatable help by running the following command:
-# Get-Module -ListAvailable | Where-Object HelpInfoUri
+Get-Module -ListAvailable | Where-Object HelpInfoUri
 
 # Used to force updates and silently continue on errors
-# Update-Help -Verbose -Force -ErrorAction SilentlyContinue
+Update-Help -Verbose -Force -ErrorAction SilentlyContinue
 
+# show all commands available
+Get-Command -All
 
-# dir | sort-object -Descending -Property lastwritetime
+# wild card, grab everything with that name
+Get-Command *process*
 
-# dir | foreach { "$($_.GetType().fullname) - $_.name"}
+####################################################
+dir | sort-object -Descending -Property lastwritetime
+dir | foreach { "$($_.GetType().fullname) - $_.name"}
+####################################################
