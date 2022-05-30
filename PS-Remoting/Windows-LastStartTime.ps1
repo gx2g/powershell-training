@@ -3,7 +3,7 @@
 Get-WmiObject Win32_OperatingSystem -ComputerName "computername" | Select-Object @{Name = 'LastStartTime' ; Expression = {[Management.ManagementDateTimeConverter]::ToDateTime($_.LastBootUpTime)}}
 
 # Trying to get information from IP remote computer. 
-Get-WmiObject Win32_OperatingSystem -ComputerName 192.168.1.150
+Get-WmiObject Win32_OperatingSystem -ComputerName "IP Address"
 
 # Ruen WinRM on both machines to confirm local access is setup. 
 # winrm help config
