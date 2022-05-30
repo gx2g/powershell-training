@@ -1,3 +1,5 @@
+# Use Test WSMan IP address to see if all is working
+Test-WSMan "IP ADDRESS"
 
 # LastStartTime for a system will be displayed from local computer. what if you want to do this from remote computer
 Get-WmiObject Win32_OperatingSystem -ComputerName "computername" | Select-Object @{Name = 'LastStartTime' ; Expression = {[Management.ManagementDateTimeConverter]::ToDateTime($_.LastBootUpTime)}}
@@ -15,9 +17,6 @@ Get-WmiObject Win32_OperatingSystem -ComputerName "IP Address"
 Set-Item WSMan:\localhost\Client\TrustedHosts -Value "IP Address"
 # Check on both machines that they are added to this TrustHosts for communication
 Get-Item WSMan:\localhost\Client\TrustedHosts
-
-# Use Test WSMan IP address to see if all is working
-Test-WSMan "IP ADDRESS"
 
 # Enter PSSession to remote computer and sign in. 
 Enter-PSSession -ComputerName "IP ADDRESS" -Credential $Credentials 
