@@ -24,16 +24,16 @@ Get-Childitem -Path c:\ -include *test.txt* -File -Recurse -ErrorAction Silently
 Get-Childitem -Path c:\ -Include *test* -Exclude *.jpg, *.mp3, *.tmp -File -Recurse -ErrorAction SilentlyContinue
 
 # Great way to find documents and list them for all files 
-Get-ChildItem -Path C:\users\<username>\desktop\ -Include *.doc,*.docx -File -Recurse -ErrorAction SilentlyContinue
+Get-ChildItem -Path C:\users\username\desktop\ -Include *.doc,*.docx -File -Recurse -ErrorAction SilentlyContinue
 
 # Lets set a time so variable so we can use two commands together / pipe which will include all files since that day
 $FindDate = Get-Date -Year 2021 -Month 01 -Day 01
 
 # Combine the two together like this using Where Object LastWriteTime greater then $FindDate
-Get-ChildItem -Path c:\users\<username>\desktop\ -include *.doc,*.docx -File -Recurse -ErrorAction SilentlyContinue | Where-Object {$_.LastWriteTime -ge $FindDate}
+Get-ChildItem -Path c:\users\username\desktop\ -include *.doc,*.docx -File -Recurse -ErrorAction SilentlyContinue | Where-Object {$_.LastWriteTime -ge $FindDate}
 
 # Combine the two together using greater then as well as less then operators with function set to 1 = 24hrs
-Get-ChildItem -Path c:\users\<username>\desktop\ -include *.doc,*.docx -File -Recurse -ErrorAction SilentlyContinue | Where-Object {$_.LastWriteTime -ge $FindDate -AND $_.LastWriteTime -le $Finddate.adddays(1)}
+Get-ChildItem -Path c:\users\username\desktop\ -include *.doc,*.docx -File -Recurse -ErrorAction SilentlyContinue | Where-Object {$_.LastWriteTime -ge $FindDate -AND $_.LastWriteTime -le $Finddate.adddays(1)}
 
 # search a list of folders for a file on different drives
 Get-ChildItem -Path c:\users, l:\foldername, x:\foldername\foldername\ -Include filename*.doc? -Recurse
