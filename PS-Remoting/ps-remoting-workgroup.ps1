@@ -15,7 +15,6 @@ Get-Item WSMan:\localhost\Client\TrustedHosts
 # Enter PSSession to remote computer and sign in. 
 Enter-PSSession -ComputerName "IP ADDRESS" -Credential $Credentials 
 
-
 Get-NetFirewallRule -Name "WINRM*" | Select-Object Name
 
 Get-NetConnectionProfile
