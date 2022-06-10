@@ -6,7 +6,8 @@
 #########
 
 # The following example creates a new primary on-premises mailbox and Active Directory user account for Pilar Pinilla with a cloud-based archive mailbox:
-New-Mailbox -Name "Pilar Pinilla" -UserPrincipalName pilarp@contoso.com -Password (ConvertTo-SecureString -String 'Pa$$word1' -AsPlainText -Force) -ArchiveDomain <tenant_domain>.mail.onmicrosoft.com -RemoteArchive -FirstName Pilar -LastName Pinilla
+# Note: don't forget ot change tenant_domain to company domain for tenant after -ArchiveDomain
+New-Mailbox -Name "Pilar Pinilla" -UserPrincipalName pilarp@contoso.com -Password (ConvertTo-SecureString -String 'Pa$$word1' -AsPlainText -Force) -ArchiveDomain "tenant_domain.mail.onmicrosoft.com" -RemoteArchive -FirstName Pilar -LastName Pinilla
 
 # The following example creates a new primary online mailbox and Active Directory user account for Kim Akers with a cloud-based archive mailbox:
 New-RemoteMailbox -Name "Kim Akers" -UserPrincipalName kima@contoso.com -Password (ConvertTo-SecureString -String 'Pa$$word1' -AsPlainText -Force) -Archive -FirstName Kim -LastName Akers
