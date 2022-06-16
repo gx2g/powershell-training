@@ -14,3 +14,5 @@ Stop-Process -id 10712 -Confirm
 
 # s to suspend execution when using -Confirm parameter
 
+# Use Get-Process cmdlet to get a list of all running processes that start with letter n*
+Get-Process n*
