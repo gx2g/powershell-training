@@ -16,3 +16,6 @@ Exchange: An unknown error has occurred. Refer to correlation ID:
 #>
 
 Get-Mailbox user@company.com | Format-List LitigationHoldEnabled,InPlaceHolds
+
+## 
+get-recipient -Identity user@company.com | format-list
