@@ -17,6 +17,6 @@ Get-Command -All
 Get-Command *process*
 
 ####################################################
-dir | sort-object -Descending -Property lastwritetime
-dir | foreach { "$($_.GetType().fullname) - $_.name"}
+Get-ChildItem | sort-object -Descending -Property lastwritetime
+Get-ChildItem | foreach { "$($_.GetType().fullname) - $_.name"}
 ####################################################

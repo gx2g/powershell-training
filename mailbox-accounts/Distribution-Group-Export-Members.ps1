@@ -6,6 +6,9 @@ $global:office365= New-PSSession -ConfigurationName Microsoft.Exchange -Connecti
 
 Import-PSSession $office365
 
+#### if you get an access denied message, read link to resolve issue. Security Defaults
+#### https://docs.microsoft.com/en-us/exchange/troubleshoot/administration/access-denied-connect-powershell
+
 ======================================================
 
 Get-DistributionGroup
@@ -16,4 +19,4 @@ Get-DistributionGroupMember -Identity "WF Team"
 
 $DGName = "WF Team"
 
-Get-DistributionGroupMember -Identity $DGName | Select Name, PrimarySMTPAddress | Export-CSV "C:\Distribution-List-Members.csv" -NoTypeInformation -Encoding UTF8
+Get-DistributionGroupMember -Identity $DGName | Select-Object Name, PrimarySMTPAddress | Export-CSV "C:\Distribution-List-Members.csv" -NoTypeInformation -Encoding UTF8
