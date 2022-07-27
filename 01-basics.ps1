@@ -18,5 +18,5 @@ Get-Command *process*
 
 ####################################################
 Get-ChildItem | sort-object -Descending -Property lastwritetime
-Get-ChildItem | foreach { "$($_.GetType().fullname) - $_.name"}
+Get-ChildItem | foreach-Object { "$($_.GetType().fullname) - $_.name"}
 ####################################################
