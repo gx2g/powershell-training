@@ -1,0 +1,1 @@
+Get-DistributionGroup -Anr <name of group> | Format-Table Name, ManagedBy -Auto

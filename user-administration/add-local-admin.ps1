@@ -5,15 +5,15 @@ $LocGroup = "Administrators"
 
 $adsi = [ADSI]"WinNT://$env:COMPUTERNAME"
 
-$existing = $adsi.Cildren | where { $_.SchemaClassName -eq 'user' -and $_.Name -eq $Username }
+$existing = $adsi.Children | where { $_.SchemaClassName -eq 'user' -and $_.Name -eq $Username }
 
 if ($existing -eq $null) {
+
     Write-Host "Creating new local user $Username."
     & NET USER $Username $Password /add /y /expires:never
 
     Write-Host "Adding local user $Username to $LocGroup."
     & NET LOCALGROUP $LocGroup $Username /add
-
 }
 
 else {
