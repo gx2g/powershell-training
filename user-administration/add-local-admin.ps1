@@ -1,5 +1,5 @@
-$Username = "ConsultAdmin"
-$Password = "w@8K1^kOn$)IT2i30"
+$Username = "userNameHere"
+$Password = "Password Here"
 
 $LocGroup = "Administrators"
 
