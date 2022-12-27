@@ -5,7 +5,7 @@ $LocGroup = "Administrators"
 
 $adsi = [ADSI]"WinNT://$env:COMPUTERNAME"
 
-$existing = $adsi.Children | where { $_.SchemaClassName -eq 'user' -and $_.Name -eq $Username }
+$existing = $adsi.Children | where-Object { $_.SchemaClassName -eq 'user' -and $_.Name -eq $Username }
 
 if ($existing -eq $null) {
 
