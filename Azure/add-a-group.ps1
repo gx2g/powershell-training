@@ -1,0 +1,2 @@
+# You can also use Azure PowerShell to add a group using the New-AzureADGroup command as shown below.
+New-AzureADGroup -Description "Marketing" -DisplayName "Marketing" -MailEnabled $false -SecurityEnabled $true -MailNickName "Marketing"
