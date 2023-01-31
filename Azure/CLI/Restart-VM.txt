@@ -1,0 +1,1 @@
+az vm restart -g MyResourceGroup -n MyVm
