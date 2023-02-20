@@ -1,0 +1,6 @@
+az ad user create --display-name "John Doe"
+--password "<password>"
+--user-principal-name "johnd@contose.com" \
+--force-change-password-next-login true \
+--mail-nickname "JohnD"
+
