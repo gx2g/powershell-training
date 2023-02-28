@@ -1,0 +1,2 @@
+﻿$myCompName = $env:COMPUTERNAME;
+$myCompName;
