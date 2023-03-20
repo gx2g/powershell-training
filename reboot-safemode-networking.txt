@@ -1,0 +1,11 @@
+# Safe Mode minimal
+bcdedit /set {current} safeboot minimal
+
+# Safe Mode with Networking
+bcdedit /set {current} safeboot network
+
+shutdown /r
+
+# Take out of Sae Mode 
+bcdedit /deletevalue {current} safeboot
+
