@@ -1,0 +1,51 @@
+# https://4sysops.com/archives/install-remove-list-and-set-default-printer-with-powershell/
+
+# printui.dll
+# Used with PrintUIEntry
+
+rundll32 printui.dll PrintUIEntry /in /n \PrintServerName\PrinterName
+
+####### PowerShell #######
+
+# Run this command to find the inf file to install drivers after 
+# you have downloaded the driver and stored it on the machine to be installed. 
+
+Get-ChilddItem -Recurse -Filter "*.inf" | Select-Object FullName
+
+# Confirm the name 
+
+dism.exe /online /Get-DriverInfo /driver:"C:\Temp\VendorName\Printer\Path-to-driver\drivername.inf"
+
+# This is display the full name of the vendor so you know you are on the right track. 
+
+# To install on live computer use this command
+PNPUtil.exe /add-driver "cC:\Temp\VendorName\Printer\Path-to-driver\drivername.inf"
+
+# List install printer drivers
+pnputil.exe /enum-drivers
+
+# Get printer drivers to make sure installed
+Get-PrinterDriver
+
+# Add a printer driver to the repository
+Add-PrinterDriver -Name "Name of Printer Driver Here" -Verbose
+
+# Add local printer port
+Add-PrinterPort -Name "LocalPort:" -ErrorAction -Verbose
+# Add a network printer port
+Add-PrinterPort -Name "TCPPort:" -PrinterHostAddress "10.1.2.3" -ErrorAction SilentlyContinue
+
+# you have now met all the prerequisites for installing our printer. 
+
+# Method 1 looks clean
+$PrinterDetails = @{
+    DriverName = "Samsung M337x 387x 407x Series"
+    Name       = "Samsung M337x" 
+    PortName   = (Get-PrinterPort -Name LocalPort*).Name
+    Verbose    = $true
+}
+Add-Printer @PrinterDetails
+
+# Method 2 Using Parameters
+Add-Printer -DriverName "Samsung M337x 387x 407x Series" -Name "Samsung M337x" -PortName (Get-PrinterPort -Name LocalPort*).Name -Verbose 
+                                                                                                                 
