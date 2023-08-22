@@ -35,3 +35,18 @@ Get-ADDomain domain.local | Format-Table PDCEMulator, RIdMaster, InfrastructureM
     # - Taking a domain controller offline for maintenance
     # - Performance issues
 
+
+    ############################################################################
+
+    Get-ADForest | Select schemamaster, domainnamingmaster
+
+    Repadmin /replsummary
+    
+    Repadmin /showrepl
+    
+    Repadmin /queue
+    
+    # Moving all the roles at once
+    # Move-ADDirectoryServerOperationMasterRole -Identity "CBE-DCO1" -OperationMasterRole 0.1,2,3,4
+
+    Move-ADDirectoryServerOperationMasterRole -Identity "CBE-DCO1" -OperationMasterRole
