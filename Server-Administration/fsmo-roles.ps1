@@ -37,16 +37,17 @@ Get-ADDomain domain.local | Format-Table PDCEMulator, RIdMaster, InfrastructureM
 
 
     ############################################################################
-
-    Get-ADForest | Select schemamaster, domainnamingmaster
-
+    # Check Source DSA and Destination DSA, times and check for failures
     Repadmin /replsummary
     
+    # Check Replication Status between all the domain controllers
+    # Looking for last attempt successful
     Repadmin /showrepl
     
+    # Check the Queue to make sure nothing is in the queue
     Repadmin /queue
     
     # Moving all the roles at once
-    # Move-ADDirectoryServerOperationMasterRole -Identity "CBE-DCO1" -OperationMasterRole 0.1,2,3,4
+    # Move-ADDirectoryServerOperationMasterRole -Identity "DC01" -OperationMasterRole 0.1,2,3,4
 
     Move-ADDirectoryServerOperationMasterRole -Identity "CBE-DCO1" -OperationMasterRole
