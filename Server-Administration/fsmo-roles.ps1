@@ -50,4 +50,4 @@ Get-ADDomain domain.local | Format-Table PDCEMulator, RIdMaster, InfrastructureM
     # Moving all the roles at once
     # Move-ADDirectoryServerOperationMasterRole -Identity "DC01" -OperationMasterRole 0.1,2,3,4
 
-    Move-ADDirectoryServerOperationMasterRole -Identity "CBE-DCO1" -OperationMasterRole
+    Move-ADDirectoryServerOperationMasterRole -Identity "DCO1" -OperationMasterRole
