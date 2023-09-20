@@ -1,0 +1,19 @@
+wmic logicaldisk get name
+wmic logicaldisk get caption
+
+# Display the Device ID and valume name.
+
+fsutil fsinfo drives
+
+wmic logicaldisk get deviceid, volumename, description
+
+# List Drives CMD via Diskpart:
+
+diskpart
+list disk
+select disk *
+list volume/list partition
+
+# Powershell 
+
+get-psdrive -psprovider filesystem
