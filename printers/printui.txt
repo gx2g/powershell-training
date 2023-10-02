@@ -19,7 +19,7 @@ dism.exe /online /Get-DriverInfo /driver:"C:\Temp\VendorName\Printer\Path-to-dri
 # This is display the full name of the vendor so you know you are on the right track. 
 
 # To install on live computer use this command
-PNPUtil.exe /add-driver "cC:\Temp\VendorName\Printer\Path-to-driver\drivername.inf"
+PNPUtil.exe /add-driver "C:\Temp\VendorName\Printer\Path-to-driver\drivername.inf"
 
 # List install printer drivers
 pnputil.exe /enum-drivers

@@ -12,12 +12,25 @@ Install-windowsfeature -name AD-Domain-Services -IncludeManagementTools
 
 
 # Install ADDS Forest
-Import-Module ADDSDeployment Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath "C:\WINDOWS\NTDS" -DomainMode "WinThreshold" -DomainName "nuggetlab.com" -DomainNetbiosName "NUGGETLAB" -ForestMode "WinThreshold" -InstallDns:$true -LogPath "C:\WINDOWS\NTDS" -NoRebootOnCompletion:$false -SysvolPath "C:\WINDOWS\SYSVOL" -Force:$true
+Import-Module ADDSDeployment 
+
+Install-ADDSForest '
+-CreateDnsDelegation:$false '
+-DatabasePath "C:\WINDOWS\NTDS" '
+-DomainMode "WinThreshold" '
+-DomainName "nuggetlab.com" '
+-DomainNetbiosName "NUGGETLAB" '
+-ForestMode "WinThreshold" '
+-InstallDns:$true '
+-LogPath "C:\WINDOWS\NTDS" '
+-NoRebootOnCompletion:$false '
+-SysvolPath "C:\WINDOWS\SYSVOL" '
+-Force:$true'
 
 
 # Install ADDS Domain Controller
-
 Import-Module ADDSDeployment 
+
 Install-ADDSDomainController '
 -NoGlobalCatalog:$false '
 -CreateDnsDelegation:$false '
@@ -31,4 +44,4 @@ Install-ADDSDomainController '
 -ReplicationSourceDC "DC01-22.nuggetlab.com" '
 -SiteName "Default-First-Site-Name" '
 -SysvolPath "C:\Windows\SYSVOL" '
--Force:$true
+-Force:$true'

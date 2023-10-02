@@ -28,7 +28,7 @@ dism.exe /Online /Get-Drivers
 
 Get-WmiObject -Class Win32_Printer 
 
-dism.exe /online /Get-DriverInfo /Driver:C:\Windows\System32\DriverStore\FileRepository\oemsetup.inf_amd64_49e52fcb140357e9\oemsetup.inf
+dism.exe /online /Get-DriverInfo /Driver:C:\Windows\System32\DriverStore\FileRepository\oemsetup.inf_amd64_49e52fcb140357e9\oemsetup.inf 
 
 $OfflinePrinters = Get-Printer | Where {($_.Type -like "Connection") -and ($_.PrinterStatus -notlike "Online") -and ($_.Published -like "False")}
 $OfflinePrinters;

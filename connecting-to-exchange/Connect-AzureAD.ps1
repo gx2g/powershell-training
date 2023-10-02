@@ -22,6 +22,7 @@ get-distributiongroup
 
 remove-distributiongroup "name of group"
 
-get-distributiongroup -identity <nameofgroup> | Format-List
+# change name of group to group name you are looking to review detailed object properties. 
+get-distributiongroup -identity nameofgroup | Format-List
 
 

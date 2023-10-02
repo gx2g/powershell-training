@@ -1,0 +1,4 @@
+# check openssl version
+openssl version -a
+
+1. curl.exe -L -o Win64OpenSSL.exe https://slproweb.com/download/Win64OpenSSL -3_0_0.exe
