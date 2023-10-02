@@ -1,3 +1,8 @@
+###
+## https://learn.microsoft.com/en-us/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview
+## https://learn.microsoft.com/en-us/azure/active-directory/architecture/service-accounts-group-managed
+## https://learn.microsoft.com/en-us/azure/active-directory/architecture/service-accounts-standalone-managed
+###
 # Gets one or more Active Directory managed service accounts or group managed service accounts.
 
 Get-ADServiceAccount -Filter { HostComputers -eq "CN=Rev-DC-01, DC=revchem, DC=com" }
@@ -20,4 +25,4 @@ Get-WmiObject win32_service -comp <ComputerNameHere> | Group StartName -NoElemen
 Get-Wmiobject win32_service -comp <ComputerNameHere> | Select Name, Status, Startname
 
 # wildcard search for service accounts running as a domain user
-Get-WmiObject Win32_Service -Comp <ComputerNameHere> -filter "startname like '%activedirectory%' " | Select Name, Status, StartName
+Get-WmiObject Win32_Service -Comp <ComputerNameHere> -filter "startname like '%Network%' " | Select Name, Status, StartName
