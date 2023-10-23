@@ -1,9 +1,9 @@
 
 # Install AD Domain Services with WhatIf to see if available, what would happen
-Install-windowsfeature -name AD-Domain-Services -IncludeManagementTools -WhatIf
+Install-WindowsFeature -name AD-Domain-Services -IncludeManagementTools -WhatIf
 
 #If shows successful run excecution 
-Install-windowsfeature -name AD-Domain-Services -IncludeManagementTools
+Install-WindowsFeature -name AD-Domain-Services -IncludeManagementTools
 # <<Windows Powershell cmdlet and arguments>>
 
 #
