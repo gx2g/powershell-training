@@ -17,3 +17,13 @@ list volume/list partition
 # Powershell 
 
 get-psdrive -psprovider filesystem
+
+Get-Volume | Get-DiskImage | Select DevicePath, ImagePath
+
+Get-PhysicalDisk | Format-Table -AutoSize
+
+# or use cmd and run it like this
+
+PowerShell "Get-PhysicalDisk | Format-Table -AutoSize"
+
+https://learn.microsoft.com/en-us/powershell/module/hyper-v/get-vhd?view=windowsserver2022-ps
