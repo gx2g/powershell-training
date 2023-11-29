@@ -1,11 +1,20 @@
+<#
+
+Install-Module Microsoft.Graph -Force
+Install-Module Microsoft.Graph.Beta -AllowClobber -Force
+Connect-MgGraph -Scopes "User.ReadWrite.All", "Group.ReadWrite.All", "Directory.ReadWrite.All", "Directory.AccessAsUser.All"
+
+#>
+
+
 # Define the path to the CSV file
-$csvFilePath = "C:\temp\ipsf_teachers.csv"
+$csvFilePath = "C:\temp\examplefile.csv"
 
 # Load the CSV data into a variable
 $csvData = Import-Csv -Path $csvFilePath
 
 # Define the new password
-$newPassword = "2024iPSF!"
+$newPassword = "AddPasswordHere"
 
 # Define force password change after sign in
 $ForceChangePasswordNextSignIn = "true" #or "false"
