@@ -1,3 +1,6 @@
+# https://blog.netwrix.com/2023/03/24/set-adaccountpassword-powershell-cmdlet/
+# Powershell Training
+
 # Reset an AD User Password
 
 Set-ADAccountPassword -Identity AbbeyCrawford
