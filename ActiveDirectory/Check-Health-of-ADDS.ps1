@@ -6,3 +6,6 @@ Repadmin /ReplSummary
 
 $Services='DNS','DFS Replication','Intersite Messaging','Kerberos Key Distribution Center','NetLogon',’Active Directory Domain Services’
 ForEach ($Service in $Services) {Get-Service $Service | Select-Object Name, Status}
+
+#  Check the health of DNS forwarders, DNS delegation, and DNS record registration in command line.
+#  DCDiag /Test:DNS /e /v
