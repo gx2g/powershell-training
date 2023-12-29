@@ -26,3 +26,18 @@ remove-distributiongroup "name of group"
 get-distributiongroup -identity nameofgroup | Format-List
 
 
+# ================================================================================ #
+# Azure AD Connect 2.0 tools
+
+Import-Module AzureAD
+Connect-AzureAD
+
+# View DirSync Status, you must connect to Azure AD
+Get-Module MSOnline
+Get-Module MSolService
+
+Get-MsolCompanyInformation
+
+
+
+# ================================================================================ #
