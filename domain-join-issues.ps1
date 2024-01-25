@@ -99,3 +99,48 @@ Set-DnsClientServerAddress -InterfaceIndex 12 -ResetServerAddresses
 # This example resets the DNS client to use the default DNS server addresses specified by DHCP 
 # on the interface with an index value of 12.
 
+
+<#
+Check whether a Firewall is blocking port 53 on the DC
+#>
+
+# Check whether the DNS service on the DC is being blocked by a firewall. To see whether port 53 is available on the DC, use this cmdlet:
+test-netconnection 172.168.5.160 -port 53
+# Check the value of “TcpTestSucceeded”. A value of “True” as shown below indicates that the DNS service on the DC is operational.
+
+<#
+Check whether your Computer can resolve the Domain Name of the DC
+Next, check whether the workstation can accurately resolve the domain name to the DC’s IP address. 
+Use the fully qualified domain name of the domain to which you are trying to join your workstation 
+with the Resolve-DNSName cmdlet, as shown here:
+#>
+
+Resolve-DNSName
+
+
+<#
+Check whether the Workstation can Contact the DNS server that hosts the DNS zone
+Next, check whether:
+
+- The computer can communicate with the DNS server that hosts the DNS zone or resolves DNS names for the domain.
+- The DNS server for the client is configured correctly and that it is connected to it.
+- You can find a domain and connect to the DC from your computer.
+
+To get the domain and DC information, along with the IP address, use the following cmdlet:
+
+#>
+
+nltest /dsgetdc:domain.local
+
+<#
+Restart the Netlogon Service on the Domain Controller
+Restart the Netlogon service on the DC using this command:
+#>
+net stop netlogon && net start netlogon
+
+# Alternatively, simply reboot the DC.
+# When the server restarts, it will try to register the necessary SRV records on the DNS server.
+
+ipconfig /registerdns
+
+# Wait for the records to arrive in DNS and for them to propagate across the domain.
