@@ -1,6 +1,10 @@
 # common ports to choose from 
 # https://tcp-udp-ports.com/win-ports.php
 
+$port = (443)
+$network = “192.168.1” # just the first 3
+$range = 1..50 # host ranges to check
+=======
 # Specify the $port value to scan:
 $port = 443
 
@@ -10,6 +14,7 @@ $network = “192.168.1”
 $range = 1..50
 
 # Enable silent scan (without error reporting) of said network: 
+
 $ErrorActionPreference= "silentlycontinue"
 
 # Calling the IP addresses one by one from the desired range and displaying the percentage to complete:
@@ -36,5 +41,6 @@ Write-Progress “Scanning Network” $ip -PercentComplete (($add/$range.Count)*
         }
     }
 
+=======
 #Create the CSV output file reporting on desired open port:
 }) | Out-File D:\reports\portscan1.csv
