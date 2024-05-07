@@ -1,7 +1,7 @@
 # common ports to choose from 
 # https://tcp-udp-ports.com/win-ports.php
 
-$port = (put port number here)
+$port = (443)
 $network = “192.168.1” # just the first 3
 $range = 1..50 # host ranges to check
 $ErrorActionPreference= "silentlycontinue"
@@ -25,4 +25,4 @@ $(Foreach ($add in $range)
     }
     }
 
-}) | Out-File D:\reports\portscan1.csv
+}) | Out-File c:\reports\portscan1.csv
