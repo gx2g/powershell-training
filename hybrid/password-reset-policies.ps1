@@ -1,4 +1,1 @@
-
-
-
-get-aduser -filter * -properties Name, PasswordNeverExpires | where {$_.passwordNeverExpires -eq "true" } | select SamAccountName, PasswordNeverExpires, DistinguishedName, Enabled | Export-CSV “C:\\password-never-expires1.csv” -NoTypeInformation -Encoding UTF8
+get-aduser -filter * -properties Name, UserPrincipalName, givenName, Surname, PasswordNeverExpires, targetAddress, proxyAddresses | where {$_.passwordNeverExpires -eq "true" } | select Name, UserPrincipalName, givenName, Surname, PasswordNeverExpires, Enabled, targetAddress, @{N='Members';E={$_.Members}},@{N='proxyAddresses';E={$_.proxyAddresses}} | Export-CSV "C:\\password-never-expires2.csv" -NoTypeInformation
