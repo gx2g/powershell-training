@@ -74,6 +74,11 @@ And let’s find the Organizational Units with Block GPO Inheritance:
 We will need to load Active Directory module for this one also.
 #>
 
+# find AD Organicational Units to use
+Get-ADOrganizationalUnit -Filter 'Name -like "*"' | Format-Table Name, DistinguishedName -A
+
+
+# Run this cript to find OU with Block Inharitance
 Import-Module ActiveDirectory
 $reportFile = "c:\GPOReports\OUsWithBlockInharit.csv"
 set-Content -Path $reportFile -Value ("Block Inharitance OU Path")
