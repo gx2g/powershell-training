@@ -39,6 +39,12 @@ Get-GPO -All | %{
     }
 }
 
+# Run this to check the resolves in powershell CLI
+Import-Csv -Path .\GPOApplyToPermissions.csv | ft
+
+
+
+
 # Get GPO’s, their links and WMI filters:
 
 $reportFile = "c:\GPOReports\GPOLinksAndWMIFilters.csv"
