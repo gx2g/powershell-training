@@ -91,3 +91,25 @@ set-Content -Path $reportFile -Value ("Block Inharitance OU Path")
 Get-ADOrganizationalUnit -SearchBase "DC=Your,DC=Domain" -Filter * | Get-GPInheritance | Where-Object { $_.GPOInheritanceBlocked } | %{
     add-Content -Path $reportFile -Value ($_.path)
 }
+
+
+<# 
+- Use this statement to find the Organizational Unit you want to use
+Get-ADOrganizationalUnit -Filter 'Name -like "*"' | Format-Table Name, DistinguishedName -A
+#>
+
+# assign the OU you want to use to the variable 
+$OU = ""
+# display those results
+Get-ADOrganizationalUnit $OU
+
+# show array of fully qualified names of those group policy objects
+$LinkedGPOs = Get-ADOrganizationalUnit $OU | Select-Object -ExpandProperty LinkedGroupPolicyObjects
+$LinkedGPOs
+
+# extract out the global unquire identifiers
+$LinkedGPOGUIDs = $LinkedGPOs | ForEach-Object{$_.Substring(4,36)}
+$LinkedGPOGUIDs
+
+# for each global unque identifier get pro guild and display object name 
+$LinkedGPOGUIDs | ForEach-Object {Get-GPO -Guid $_ | Select-Object DisplayName} 
