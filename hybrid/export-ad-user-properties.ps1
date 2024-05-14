@@ -1,1 +1,2 @@
+# Check password never expires set to true on users in AD, display properties that export to csv
 get-aduser -filter * -properties Name, UserPrincipalName, givenName, Surname, PasswordNeverExpires, targetAddress, proxyAddresses | where {$_.passwordNeverExpires -eq "true" } | select Name, UserPrincipalName, givenName, Surname, PasswordNeverExpires, Enabled, targetAddress, @{N='Members';E={$_.Members}},@{N='proxyAddresses';E={$_.proxyAddresses}} | Export-CSV "C:\\password-never-expires5.csv" -NoTypeInformation
